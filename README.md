@@ -1,4 +1,4 @@
-# JKFLIPFLOP-USING-IF-ELSE
+# 19EE404_EX4_JKFLIPFLOP-USING-IF-ELSE
 
 **AIM:** 
 
@@ -34,15 +34,64 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Define Inputs/Outputs: Inputs: J (Set), K (Reset), c1k (clock); Outputs: q, qbar (~q).
+2. Initialization: Set q = 0 and qbar = 1 at the start of the simulation.
+3. JK Flip-Flop Logic: On posedge c1k, compute q 
+4. Complementary Output: Update qbar = ~q to maintain complementarity.
+5. Testbench: Simulate with combinations of J, K, and c1k to verify JK Flip-Flop functionality.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+Program for flipflops and verify its truth table in quartus using Verilog programming. 
+Developed by: RAMKUMAR S
+RegisterNumber: 212225240115
+```
+```
+module log3(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+ //Write logic for JK flipflop using if else statement for four conditions
+
+begin
+               if (j == 0 && k == 0)
+                    begin
+                    q <= q;
+                    qb <= qb;
+                    end 
+		else if (j != k)
+                    begin
+                    q <= j;
+                    qb <= k;
+                    end
+               else if (j == 1 && k == 1) 
+                    begin 
+                    q <= ~q; 
+                    qb <= ~qb; 
+                    end 
+            end
+end  
+endmodule
+
+```
+
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1919" height="1018" alt="image" src="https://github.com/user-attachments/assets/dec383d6-45a1-4766-836c-fbdbde017707" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1917" height="1020" alt="image" src="https://github.com/user-attachments/assets/a915e44e-7be2-46fd-b499-0e91abaf533f" />
 
 **RESULTS**
+Hence implement of JK flipflop using verilog and validating their functionality using their functional tables has been successfully executed.
